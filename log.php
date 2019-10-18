@@ -27,7 +27,7 @@ if ($conn->connect_error) {
       Sequence
     </th>
     <th>
-      Frequency
+      Frequency (MHz)
     </th>
     <th>
       Band
