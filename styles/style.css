@@ -1,0 +1,138 @@
+body {
+background-color:#272727;
+overflow-x: hidden;
+overflow-y: auto;
+font-family: 'Roboto', sans-serif;
+color: #6a92d4;
+}
+
+h1 {
+text-align: center;
+color:#6A92D4;
+padding-top: 2%;
+}
+
+h2 {
+color:#6A92D4;
+margin-bottom: 5px;
+}
+
+a {
+  color: #8db2f0;
+}
+
+a:visited, a:active, a:hover {
+  color: white;
+}
+
+.logTable {
+width:100%;
+border-collapse:collapse;
+table-layout:auto;
+vertical-align:top;
+border:1px solid #999999;
+}
+
+.logTable thead th{
+color:#FFFFFF;
+background-color:#000000;
+border:1px solid #999999;
+border-collapse:collapse;
+text-align:center;
+table-layout:auto;
+vertical-align:middle;
+}
+
+.logTable tbody td{
+border-collapse:collapse;
+border:1px solid #999999;
+}
+
+.logTable thead th, tbody td{
+padding:5px;
+border-collapse:collapse;
+}
+
+.logTable td {
+text-align: center;
+}
+
+.logTable tbody tr{
+color:#CCCCCC;
+background-color:#333333;
+}
+
+.topiFrame {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+}
+
+.lowerDiv {
+  display: flex;
+  flex-direction: row;
+  max-height: 50%;
+}
+
+.contactsDiv {
+  height: 50%;
+  display: flex;
+}
+
+.entryDiv {
+  width: 50%;
+}
+
+.rightDiv {
+  width: 50%;
+}
+
+.entryForm {
+  margin: 10px;
+}
+
+input[type="text"], input[type="number"], input[type="email"], datalist, textarea, select {
+    border: 1px solid #DADADA;
+    border-radius: 2px;
+    color: #232323;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    max-width: 100%;
+    width: 100%;
+    font-size: 13px;
+    line-height:15px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+input[type="date"]{
+  border: 1px solid #DADADA;
+  border-radius: 5px;
+  color: #232323;
+  margin-bottom: 5px;
+  margin-top: 2px;
+  outline: 0 none;
+  padding: 3px 3px 3px 5px;
+  max-width: 100%;
+  font-size: 13px;
+  line-height:15px;
+  box-shadow: inset 0px 1px 4px #ECECEC;
+  -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+  -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+
+input[type="button" i] {
+  background: #6a92d4;;
+  border: none;
+  height: 50px;
+  padding: 10px 15px 10px 15px;
+  color: #FFF;
+  border-radius: 3px;
+  text-shadow: 1px 1px 1px #272727;
+  cursor: pointer;
+}
+input[type="button" i]:hover {
+      background: #007EF5;
+}
