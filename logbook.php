@@ -96,11 +96,12 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
         </td>
       </tr>
       <tr>
-        <td>
-
+        <td colspan="2" style="text-align: center;">
+          <input type="checkbox" name="allowDuplicates" id="allowDuplicates" /> Allow Duplicate entries
         </td>
-        <td>
-          <!--<input type="submit" name="submit" value="Submit" /> -->
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
            <input type="button" onclick="form.submit()" value="Submit">
         </td>
       </tr>
@@ -192,9 +193,11 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
     var i, e, data = [];
     for (i = 0; i < form.elements.length; i++) {
       e = form.elements[i];
-      if (e.type !== 'button' && e.type !== 'submit') {
+      if (e.type !== 'button' && e.type !== 'submit' && e.type !== 'checkbox') {
         data.push(encodeURIComponent(e.id) + '=' + encodeURIComponent(e.value));
       }
+      if (e.type == 'checkbox' && e.checked == true)
+        data.push(encodeURIComponent(e.id) + '=' + encodeURIComponent(e.value));
     }
     return data.join('&');
   }
