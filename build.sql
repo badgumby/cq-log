@@ -11,6 +11,7 @@ CREATE TABLE users (
 
 /* Create a new user */
 INSERT INTO users (username, pswd) VALUES ('badgumby', SHA1('password'));
+INSERT INTO users (username, pswd) VALUES ('user2', SHA1('mypass'));
 
 /* Create a table for each user */
 CREATE TABLE badgumby (

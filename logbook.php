@@ -50,6 +50,7 @@ if ($compare == sha1($_POST['password'])) {
 </div>
 <div class="footer">
   <div id="responseDiv" class="responseDiv">
+    <a href="javascript:refreshLog();">Refresh log</a>
     <h3>Status</h3>
     <div id="responseMsg">
 
@@ -131,6 +132,11 @@ if ($compare == sha1($_POST['password'])) {
   </div>
 </div>
 <script type="text/javascript">
+  function refreshLog() {
+    // refresh iframe
+    document.getElementById('topiFrame').contentWindow.location.reload();
+  }
+
   function checkBand() {
     var x = document.getElementById('frequency').value;
     // 160m
