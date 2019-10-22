@@ -23,6 +23,10 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
   <iframe class="topiFrame" id="topiFrame" src="log.php"></iframe>
 </div>
 <div class="lowerDiv">
+  <div id="responseDiv" class="responseDiv">
+    Response:
+  </div>
+  <hr class="bottomHR"/>
   <div class="entryDiv">
   <form class="entryForm" action="add-entry.php" id="entryForm" method="post">
     <table>
@@ -33,24 +37,24 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
         <td>
           <input type="text" id="callsign" name="callsign" required/>
         </td>
-      </tr>
-      <tr>
+        <!--      </tr>
+              <tr> -->
         <td>
           Sequence
         </td>
         <td>
           <input type="number" id="sequence" name="sequence" required/>
         </td>
-      </tr>
-      <tr>
+<!--      </tr>
+      <tr> -->
         <td>
           Frequency (MHz)
         </td>
         <td>
           <input type="text" id="frequency" name="frequency" onfocus="checkBand();"/>
         </td>
-      </tr>
-      <tr>
+        <!--      </tr>
+              <tr> -->
         <td>
           Band
         </td>
@@ -78,16 +82,16 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
         <td>
           <input type="text" id="location" name="location" required/>
         </td>
-      </tr>
-      <tr>
+        <!--      </tr>
+              <tr> -->
         <td>
           Date
         </td>
         <td>
           <input type="text" id="date" name="date" onfocus="getDate();" required/>
         </td>
-      </tr>
-      <tr>
+        <!--      </tr>
+              <tr> -->
         <td>
           Notes
         </td>
@@ -99,17 +103,14 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
         <td colspan="2" style="text-align: center;">
           <input type="checkbox" name="allowDuplicates" id="allowDuplicates" /> Allow Duplicate entries
         </td>
-      </tr>
-      <tr>
+        <!--      </tr>
+              <tr> -->
         <td colspan="2" style="text-align: center;">
            <input type="button" onclick="form.submit()" value="Submit">
         </td>
       </tr>
     </table>
   </form>
-  </div>
-  <div class="rightDiv">
-
   </div>
 </div>
 <script type="text/javascript">
@@ -232,6 +233,27 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
 
         // refresh iframe
         document.getElementById('topiFrame').contentWindow.location.reload();
+
+        // Log output to div
+        let console = {};
+
+            // Getting div to insert logs
+            let logger = document.getElementById("responseDiv");
+            // Clear current log
+            logger.innerHTML = "";
+            // Adding log method from our console object
+            console.log = text =>
+            {
+                let element = document.createElement("div");
+                let txt = document.createTextNode(text);
+
+                //element.appendChild(txt);
+                logger.appendChild(txt);
+            }
+
+            // testing
+
+
       }
 </script>
 </body>

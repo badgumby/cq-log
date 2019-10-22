@@ -25,6 +25,10 @@ a:visited, a:active, a:hover {
   color: white;
 }
 
+.bottomHR {
+  width: 100%;
+}
+
 .logTable {
 width:100%;
 border-collapse:collapse;
@@ -70,21 +74,27 @@ background-color:#333333;
 
 .lowerDiv {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   max-height: 50%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .contactsDiv {
-  height: 50%;
+  overflow-y: hidden;
+  resize: vertical;
   display: flex;
+  border: 1px solid #ccc;
 }
 
 .entryDiv {
-  width: 50%;
+
 }
 
-.rightDiv {
-  width: 50%;
+.responseDiv {
+  padding: 5px;
+  margin-bottom: 5px;
 }
 
 .entryForm {
