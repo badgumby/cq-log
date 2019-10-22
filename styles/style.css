@@ -28,6 +28,12 @@ a:visited, a:active, a:hover {
 .bottomHR {
   width: 100%;
 }
+section {
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+  height: 100%;
+}
 
 .logTable {
 width:100%;
@@ -66,26 +72,30 @@ color:#CCCCCC;
 background-color:#333333;
 }
 
+.header {
+  height: 5%;
+}
+
 .topiFrame {
   width: 100%;
   height: 100%;
   border: 1px solid #ccc;
 }
 
-.lowerDiv {
-  display: flex;
+.middle {
+  overflow: hidden;
+  flex: 1 1 auto;
+  border: 1px solid #ccc;
+}
+
+.footer {
+  /*display: flex;
   flex-direction: column;
   max-height: 50%;
   position: fixed;
   bottom: 0;
-  width: 100%;
-}
-
-.contactsDiv {
-  overflow-y: hidden;
-  resize: vertical;
-  display: flex;
-  border: 1px solid #ccc;
+  width: 100%;*/
+  flex: 0 1 60px;
 }
 
 .entryDiv {

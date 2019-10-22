@@ -19,12 +19,19 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-<div class="contactsDiv">
+  <section>
+    <div class="header">
+      <h3>CQ Logbook</h3>
+    </div>
+<div class="middle">
   <iframe class="topiFrame" id="topiFrame" src="log.php"></iframe>
 </div>
-<div class="lowerDiv">
+<div class="footer">
   <div id="responseDiv" class="responseDiv">
-    Response:
+    <h3>Status</h3>
+    <div id="responseMsg">
+
+    </div>
   </div>
   <hr class="bottomHR"/>
   <div class="entryDiv">
@@ -238,9 +245,9 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
         let console = {};
 
             // Getting div to insert logs
-            let logger = document.getElementById("responseDiv");
+            let logger = document.getElementById("responseMsg");
             // Clear current log
-            logger.innerHTML = "";
+            logger.innerHTML = " ";
             // Adding log method from our console object
             console.log = text =>
             {
@@ -256,5 +263,6 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
 
       }
 </script>
+</section>
 </body>
 </html>
