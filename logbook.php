@@ -3,7 +3,7 @@
 include("config.php");
 
 // Create connection
-$mysqli = new mysqli($servername, $username, $password, $dbname);
+$mysqli = new mysqli($servername, $dbuser, $dbpass, $dbname);
 // Check connection
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
@@ -12,7 +12,26 @@ if ($mysqli->connect_error) {
 // Used for posting data
 $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
+// Query for username lookup
+$stmnt1 = $mysqli->prepare("SELECT pswd FROM users WHERE username = ?");
+$stmnt1->bind_param("s", $_POST['username']);
+$stmnt1->execute();
+$stmnt1->bind_result($thispass);
+while ($stmnt1->fetch()) {
+  $compare = $thispass;
+}
+$result = $stmnt1->get_result();
+$stmnt1->close();
+//echo $compare;
+
+// Check password
+if ($compare == sha1($_POST['password'])) {
+  // Start session
+  session_start();
+  $_SESSION["loggedin"] = true;
+  $_SESSION["username"] = $_POST['username'];
 ?>
+
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
@@ -20,25 +39,10 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
   <title>CQ Log</title>
 </head>
 <body>
-  <?php
-  // Query for username lookup
-  $stmnt1 = $mysqli->prepare("SELECT pswd FROM users WHERE username = ?");
-  $stmnt1->bind_param("s", $_POST['username']);
-  $stmnt1->execute();
-  $stmnt1->bind_result($thispass);
-  while ($stmnt1->fetch()) {
-    $compare = $thispass;
-  }
-  $result = $stmnt1->get_result();
-  $stmnt1->close();
-  //echo $compare;
 
-  // Check password
-  if ($compare == sha1($_POST['password'])) {
-  ?>
   <section>
     <div class="header">
-      <h3>CQ Logbook - <?php echo $_POST['username']; ?></h3>
+      <h3>CQ Logbook - <?php echo $_SESSION['username']; ?></h3>
     </div>
 <div class="middle">
   <iframe class="topiFrame" id="topiFrame" src="log.php"></iframe>

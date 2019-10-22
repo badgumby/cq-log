@@ -12,6 +12,20 @@ CREATE TABLE users (
 /* Create a new user */
 INSERT INTO users (username, pswd) VALUES ('badgumby', SHA1('password'));
 
+/* Create a table for each user */
+CREATE TABLE badgumby (
+  callsign TEXT,
+  sequence int(11),
+  band TEXT NULL,
+  date datetime,
+  frequency TEXT NULL,
+  location TEXT,
+  notes TEXT NULL,
+  ident int(10) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (ident)
+);
+
+/*
 CREATE TABLE logs (
   callsign TEXT,
   sequence int(11),

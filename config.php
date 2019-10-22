@@ -1,8 +1,8 @@
 <?php
 
 $servername = "localhost";
-$username = "somedude";
-$password = "somepass";
+$dbuser = "somedude";
+$dbpass = "somepass";
 $dbname = "cqlog";
 
  ?>

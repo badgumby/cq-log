@@ -2,6 +2,18 @@
 
 include('config.php');
 
+// Initialize the session
+session_start();
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: index.php");
+    exit;
+
+// Post the stuff
+} else {
+
+$dbtable = $_SESSION['username'];
 $callsign = $_POST['callsign'];
 $sequence = $_POST['sequence'];
 $frequency = $_POST['frequency'];
@@ -18,14 +30,14 @@ if ($_POST['allowDuplicates'] == 'on') {
 }
 
 // Create connection
-$mysqli = new mysqli($servername, $username, $password, $dbname);
+$mysqli = new mysqli($servername, $dbuser, $dbpass, $dbname);
 // Check connection
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
 // Query for callsign lookup
-$stmnt1 = $mysqli->prepare("SELECT callsign FROM logs WHERE callsign = ?");
+$stmnt1 = $mysqli->prepare("SELECT callsign FROM $dbtable WHERE callsign = ?");
 $stmnt1->bind_param("s", $callsign);
 $stmnt1->execute();
 $result = $stmnt1->get_result();
@@ -35,7 +47,7 @@ $stmnt1->close();
 if ($result->num_rows === 0 or $allowDuplicates === TRUE) {
   // Insert new data
   try {
-    $stmnt2 = $mysqli->prepare("INSERT INTO logs (callsign, sequence, frequency, band, date, location, notes) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmnt2 = $mysqli->prepare("INSERT INTO $dbtable (callsign, sequence, frequency, band, date, location, notes) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmnt2->bind_param("sisssss", $callsign, $sequence, $frequency, $band, $date, $location, $notes);
     $stmnt2->execute();
     $result2 = $stmnt2->get_result();
@@ -53,4 +65,5 @@ if ($result->num_rows === 0 or $allowDuplicates === TRUE) {
 
 $mysqli->close();
 
+}
  ?>

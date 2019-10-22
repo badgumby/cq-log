@@ -2,12 +2,26 @@
 
 include("config.php");
 
+// Initialize the session
+session_start();
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: index.php");
+    exit;
+
+// Post the stuff
+} else {
+
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$mysqli = new mysqli($servername, $dbuser, $dbpass, $dbname);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
 }
+
+$dbtable = $_SESSION['username'];
+
 ?>
 <html>
 <head>
@@ -44,8 +58,8 @@ if ($conn->connect_error) {
   </tr>
 <?php
 
-$sql = "SELECT callsign, sequence, band, date, frequency, location, notes, ident FROM logs ORDER BY ident DESC";
-$result = $conn->query($sql);
+$sql = "SELECT callsign, sequence, band, date, frequency, location, notes, ident FROM $dbtable ORDER BY ident DESC";
+$result = $mysqli->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
@@ -82,6 +96,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-$conn->close();
+$mysqli->close();
+}
 ?>
 </table>
