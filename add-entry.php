@@ -42,16 +42,13 @@ if ($result->num_rows === 0 or $allowDuplicates === TRUE) {
     $stmnt2->bind_param("sisssss", $callsign, $sequence, $frequency, $band, $date, $location, $notes);
     $stmnt2->execute();
     $result2 = $stmnt2->get_result();
-    var_dump($result2);
+    // debug messages
+    //var_dump($result2);
+    echo "New record created successfully";
 
-    //if ($mysqli->query($sql2) === TRUE) {
-    //  echo "New record created successfully";
-    //} else {
-    //  echo "Error: " . $sql2 . "<br>" . $mysqli->error;
-    //}
     $stmnt2->close();
   } catch(Exception $e) {
-    echo $e;
+    echo "An error occurred: " + $e;
   }
 } else {
   echo "Duplicate callsign ($callsign) found.";
