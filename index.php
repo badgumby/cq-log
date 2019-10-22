@@ -7,10 +7,11 @@ session_start();
  <head>
    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
    <link rel="stylesheet" href="styles/style.css">
-   <title>CQ Log</title>
+   <title>CQ Logbook</title>
  </head>
  <body>
    <div class="loginDiv">
+     <h3>CQ Logbook</h3>
      <form name="login" id="login" class="" method="post" action="logbook.php">
        <table>
          <tr>

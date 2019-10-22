@@ -17,6 +17,12 @@ color:#6A92D4;
 margin-bottom: 5px;
 }
 
+h3 {
+  color:#6A92D4;
+  margin: 0 auto;
+  padding-top: 1%;
+}
+
 a {
   color: #8db2f0;
 }
@@ -36,6 +42,12 @@ section {
 }
 
 .loginDiv {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding-top: 15px;
+  margin-top: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,6 +93,8 @@ background-color:#333333;
 
 .header {
   height: 5%;
+  display: flex;
+  flex-direction: row;
 }
 
 .topiFrame {

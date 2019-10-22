@@ -39,5 +39,5 @@ CREATE TABLE logs (
 );
 
 /* Reset AUTO_INCREMENT on table
-ALTER TABLE logs AUTO_INCREMENT = 10;
+ALTER TABLE badgumby AUTO_INCREMENT = 3;
 */

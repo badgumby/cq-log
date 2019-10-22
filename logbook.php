@@ -36,13 +36,14 @@ if ($compare == sha1($_POST['password'])) {
 <head>
   <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
-  <title>CQ Log</title>
+  <title>CQ Logbook</title>
 </head>
 <body>
 
   <section>
     <div class="header">
       <h3>CQ Logbook - <?php echo $_SESSION['username']; ?></h3>
+      <a href="logout.php">Logout</a>
     </div>
 <div class="middle">
   <iframe class="topiFrame" id="topiFrame" src="log.php"></iframe>
@@ -275,7 +276,8 @@ if ($compare == sha1($_POST['password'])) {
 </section>
 <?php
 } else {
-  echo "Invalid password.";
+  // Invalid password, redirect to index.php
+  header("location: index.php");
 }
 ?>
 </body>
