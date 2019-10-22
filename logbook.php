@@ -3,10 +3,10 @@
 include("config.php");
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$mysqli = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
 }
 
 // Used for posting data
@@ -17,11 +17,28 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
 <head>
   <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
+  <title>CQ Log</title>
 </head>
 <body>
+  <?php
+  // Query for username lookup
+  $stmnt1 = $mysqli->prepare("SELECT pswd FROM users WHERE username = ?");
+  $stmnt1->bind_param("s", $_POST['username']);
+  $stmnt1->execute();
+  $stmnt1->bind_result($thispass);
+  while ($stmnt1->fetch()) {
+    $compare = $thispass;
+  }
+  $result = $stmnt1->get_result();
+  $stmnt1->close();
+  //echo $compare;
+
+  // Check password
+  if ($compare == sha1($_POST['password'])) {
+  ?>
   <section>
     <div class="header">
-      <h3>CQ Logbook</h3>
+      <h3>CQ Logbook - <?php echo $_POST['username']; ?></h3>
     </div>
 <div class="middle">
   <iframe class="topiFrame" id="topiFrame" src="log.php"></iframe>
@@ -44,24 +61,18 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
         <td>
           <input type="text" id="callsign" name="callsign" required/>
         </td>
-        <!--      </tr>
-              <tr> -->
         <td>
           Sequence
         </td>
         <td>
           <input type="number" id="sequence" name="sequence" required/>
         </td>
-<!--      </tr>
-      <tr> -->
         <td>
           Frequency (MHz)
         </td>
         <td>
           <input type="text" id="frequency" name="frequency" onfocus="checkBand();"/>
         </td>
-        <!--      </tr>
-              <tr> -->
         <td>
           Band
         </td>
@@ -89,16 +100,12 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
         <td>
           <input type="text" id="location" name="location" required/>
         </td>
-        <!--      </tr>
-              <tr> -->
         <td>
           Date
         </td>
         <td>
           <input type="text" id="date" name="date" onfocus="getDate();" required/>
         </td>
-        <!--      </tr>
-              <tr> -->
         <td>
           Notes
         </td>
@@ -110,8 +117,6 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
         <td colspan="2" style="text-align: center;">
           <input type="checkbox" name="allowDuplicates" id="allowDuplicates" /> Allow Duplicate entries
         </td>
-        <!--      </tr>
-              <tr> -->
         <td colspan="2" style="text-align: center;">
            <input type="button" onclick="form.submit()" value="Submit">
         </td>
@@ -264,5 +269,10 @@ $local = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "ht
       }
 </script>
 </section>
+<?php
+} else {
+  echo "Invalid password.";
+}
+?>
 </body>
 </html>

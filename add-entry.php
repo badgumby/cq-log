@@ -31,9 +31,6 @@ $stmnt1->execute();
 $result = $stmnt1->get_result();
 $stmnt1->close();
 
-//$sql1 = "SELECT callsign FROM logs WHERE callsign = '$callsign'";
-//$result = $mysqli->query($sql1);
-
 // Check if callsign was found
 if ($result->num_rows === 0 or $allowDuplicates === TRUE) {
   // Insert new data
@@ -45,8 +42,8 @@ if ($result->num_rows === 0 or $allowDuplicates === TRUE) {
     // debug messages
     //var_dump($result2);
     echo "New record created successfully";
-
     $stmnt2->close();
+
   } catch(Exception $e) {
     echo "An error occurred: " + $e;
   }
