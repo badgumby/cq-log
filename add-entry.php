@@ -18,31 +18,47 @@ if ($_POST['allowDuplicates'] == 'on') {
 }
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$mysqli = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
 }
 
 // Query for callsign lookup
-$sql1 = "SELECT callsign FROM logs WHERE callsign = '$callsign'";
-$result = $conn->query($sql1);
+$stmnt1 = $mysqli->prepare("SELECT callsign FROM logs WHERE callsign = ?");
+$stmnt1->bind_param("s", $callsign);
+$stmnt1->execute();
+$result = $stmnt1->get_result();
+$stmnt1->close();
+
+//$sql1 = "SELECT callsign FROM logs WHERE callsign = '$callsign'";
+//$result = $mysqli->query($sql1);
 
 // Check if callsign was found
-if ($result->num_rows <= 0 or $allowDuplicates === TRUE) {
-    // Insert new data
-    $sql2 = "INSERT INTO logs (callsign, sequence, frequency, band, date, location, notes)
-    VALUES ('$callsign', '$sequence', '$frequency', '$band', '$date','$location', '$notes')";
-
-    if ($conn->query($sql2) === TRUE) {
-      echo "New record created successfully";
-    } else {
-      echo "Error: " . $sql2 . "<br>" . $conn->error;
-    }
-  } else {
-    echo "Duplicate callsign ($callsign) found.";
+if ($result->num_rows === 0 or $allowDuplicates === TRUE) {
+  // Insert new data
+  try {
+    $stmnt2 = $mysqli->prepare("INSERT INTO logs (callsign, sequence, frequency, band, date, location, notes) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmnt2->bind_param("sississ", $callsign, $sequence, $frequency, $band, $date, $location, $notes);
+    $stmnt2->execute();
+    $result2 = $stmnt2->get_result();
+    var_dump($result2);
+    if($stmnt2->affected_rows === 0) exit('No rows updated');
+    //$sql2 = "INSERT INTO logs (callsign, sequence, frequency, band, date, location, notes)
+    //VALUES ('$callsign', '$sequence', '$frequency', '$band', '$date','$location', '$notes')";
+    //if ($mysqli->query($sql2) === TRUE) {
+    //  echo "New record created successfully";
+    //} else {
+    //  echo "Error: " . $sql2 . "<br>" . $mysqli->error;
+    //}
+    $stmnt2->close();
+  } catch(Exception $e) {
+    echo $e;
   }
+} else {
+  echo "Duplicate callsign ($callsign) found.";
+}
 
-$conn->close();
+$mysqli->close();
 
  ?>
