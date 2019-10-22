@@ -2,16 +2,15 @@
 CREATE DATABASE cqlogs;
 
 /* Create 'users' table */
-CREATE TABLE 'users' (
-  'id' int(10) unsigned NOT NULL AUTO_INCREMENT,
-  'username' varchar(255) DEFAULT NULL,
-  'pswd' varchar(255) DEFAULT NULL,
-  PRIMARY KEY ('id'),
-  UNIQUE KEY 'username' ('username')
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE users (
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  username varchar(255) DEFAULT NULL UNIQUE KEY,
+  pswd varchar(255) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
 
 /* Create a new user */
-INSERT INTO 'users' ('username', 'pswd') VALUES ('badgumby', SHA1('password'));
+INSERT INTO users (username, pswd) VALUES ('badgumby', SHA1('password'));
 
 CREATE TABLE logs (
   callsign TEXT,
