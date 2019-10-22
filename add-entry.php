@@ -39,13 +39,11 @@ if ($result->num_rows === 0 or $allowDuplicates === TRUE) {
   // Insert new data
   try {
     $stmnt2 = $mysqli->prepare("INSERT INTO logs (callsign, sequence, frequency, band, date, location, notes) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmnt2->bind_param("sississ", $callsign, $sequence, $frequency, $band, $date, $location, $notes);
+    $stmnt2->bind_param("sisssss", $callsign, $sequence, $frequency, $band, $date, $location, $notes);
     $stmnt2->execute();
     $result2 = $stmnt2->get_result();
     var_dump($result2);
-    if($stmnt2->affected_rows === 0) exit('No rows updated');
-    //$sql2 = "INSERT INTO logs (callsign, sequence, frequency, band, date, location, notes)
-    //VALUES ('$callsign', '$sequence', '$frequency', '$band', '$date','$location', '$notes')";
+
     //if ($mysqli->query($sql2) === TRUE) {
     //  echo "New record created successfully";
     //} else {
