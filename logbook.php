@@ -101,13 +101,19 @@ if ($compare == sha1($_POST['password'])) {
       </tr>
       <tr>
         <td>
-          Location
+          State
         </td>
         <td>
-          <input type="text" id="location" name="location" required/>
+          <input type="text" id="state" name="state" maxlength="4" required/>
         </td>
         <td>
-          Date
+          Country
+        </td>
+        <td>
+          <input type="text" id="country" name="country" required/>
+        </td>
+        <td>
+          Date/Time
         </td>
         <td>
           <input type="text" id="date" name="date" onfocus="getDate();" required/>

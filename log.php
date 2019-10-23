@@ -29,39 +29,46 @@ $dbtable = $_SESSION['username'];
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-<table class="logTable">
-  <tr>
-    <th>
-      Order
-    </th>
-    <th>
-      Callsign
-    </th>
-    <th>
-      Sequence
-    </th>
-    <th>
-      Frequency (MHz)
-    </th>
-    <th>
-      Band
-    </th>
-    <th>
-      Location
-    </th>
-    <th>
-      Date
-    </th>
-    <th>
-      Notes
-    </th>
-  </tr>
+
 <?php
 
-$sql = "SELECT callsign, sequence, band, date, frequency, location, notes, ident FROM $dbtable ORDER BY ident DESC";
+$sql = "SELECT callsign, sequence, band, date, frequency, state, country, notes, ident FROM $dbtable ORDER BY ident DESC";
 $result = $mysqli->query($sql);
 
 if ($result->num_rows > 0) {
+  // Build table
+  ?>
+  <table class="logTable">
+    <tr>
+      <th>
+        Order
+      </th>
+      <th>
+        Callsign
+      </th>
+      <th>
+        Sequence
+      </th>
+      <th>
+        Frequency (MHz)
+      </th>
+      <th>
+        Band
+      </th>
+      <th>
+        State
+      </th>
+      <th>
+        Country
+      </th>
+      <th>
+        Date/Time
+      </th>
+      <th>
+        Notes
+      </th>
+    </tr>
+  <?php
     // output data of each row
     while($row = $result->fetch_assoc()) {
       ?>
@@ -82,7 +89,10 @@ if ($result->num_rows > 0) {
           <?php echo $row["band"]; ?>
         </td>
         <td>
-          <?php echo $row["location"]; ?>
+          <?php echo $row["state"]; ?>
+        </td>
+        <td>
+          <?php echo $row["country"]; ?>
         </td>
         <td>
           <?php echo $row["date"]; ?>
@@ -91,12 +101,12 @@ if ($result->num_rows > 0) {
           <?php echo $row["notes"]; ?>
         </td>
       </tr>
+    </table>
       <?php
     }
 } else {
-    echo "0 results";
+    echo "You currenlty have 0 contacts. As soon as you submit one, it will appear in this list! ";
 }
 $mysqli->close();
 }
 ?>
-</table>

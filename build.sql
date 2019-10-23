@@ -20,24 +20,15 @@ CREATE TABLE badgumby (
   band TEXT NULL,
   date datetime,
   frequency TEXT NULL,
-  location TEXT,
+  state TEXT NULL,
+  country TEXT NULL,
   notes TEXT NULL,
+  rstr TEXT NULL,
+  rsts TEXT NULL,
   ident int(10) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (ident)
 );
 
-/*
-CREATE TABLE logs (
-  callsign TEXT,
-  sequence int(11),
-  band TEXT NULL,
-  date datetime,
-  frequency TEXT NULL,
-  location TEXT,
-  notes TEXT NULL,
-  ident int(10) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (ident)
-);
 
 /* Reset AUTO_INCREMENT on table
 ALTER TABLE badgumby AUTO_INCREMENT = 3;

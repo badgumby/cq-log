@@ -19,7 +19,7 @@ $sequence = $_POST['sequence'];
 $frequency = $_POST['frequency'];
 $band = $_POST['band'];
 $date = $_POST['date'];
-$location = $_POST['location'];
+$country = $_POST['country'];
 $notes = $_POST['notes'];
 
 // Is allowDuplicates checked?
@@ -47,8 +47,8 @@ $stmnt1->close();
 if ($result->num_rows === 0 or $allowDuplicates === TRUE) {
   // Insert new data
   try {
-    $stmnt2 = $mysqli->prepare("INSERT INTO $dbtable (callsign, sequence, frequency, band, date, location, notes) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmnt2->bind_param("sisssss", $callsign, $sequence, $frequency, $band, $date, $location, $notes);
+    $stmnt2 = $mysqli->prepare("INSERT INTO $dbtable (callsign, sequence, frequency, band, date, country, notes) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmnt2->bind_param("sisssss", $callsign, $sequence, $frequency, $band, $date, $country, $notes);
     $stmnt2->execute();
     $result2 = $stmnt2->get_result();
     // debug messages
