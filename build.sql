@@ -10,11 +10,10 @@ CREATE TABLE users (
 );
 
 /* Create a new user */
-INSERT INTO users (username, pswd) VALUES ('badgumby', SHA1('password'));
-INSERT INTO users (username, pswd) VALUES ('user2', SHA1('mypass'));
+INSERT INTO users (username, pswd) VALUES ('username', SHA1('password'));
 
 /* Create a table for each user */
-CREATE TABLE badgumby (
+CREATE TABLE username (
   callsign TEXT,
   sequence int(11),
   band TEXT NULL,
@@ -31,5 +30,5 @@ CREATE TABLE badgumby (
 
 
 /* Reset AUTO_INCREMENT on table
-ALTER TABLE badgumby AUTO_INCREMENT = 3;
+ALTER TABLE username AUTO_INCREMENT = 3;
 */
