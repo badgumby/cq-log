@@ -65,19 +65,19 @@ if ($compare == sha1($_POST['password'])) {
           Callsign
         </td>
         <td>
-          <input type="text" id="callsign" name="callsign" required/>
+          <input title="The contact's callsign" type="text" id="callsign" name="callsign" required/>
         </td>
         <td>
           Sequence
         </td>
         <td>
-          <input type="number" id="sequence" name="sequence" required/>
+          <input title="The sequence number provided to you by the contact" type="number" id="sequence" name="sequence" required/>
         </td>
         <td>
           Frequency (MHz)
         </td>
         <td>
-          <input type="text" id="frequency" name="frequency" onfocus="checkBand();"/>
+          <input title="Frequency on which the contact was made" type="text" id="frequency" name="frequency" onfocus="checkBand();"/>
         </td>
         <td>
           Band
@@ -104,30 +104,44 @@ if ($compare == sha1($_POST['password'])) {
           State
         </td>
         <td>
-          <input type="text" id="state" name="state" maxlength="4" required/>
+          <input title="The contact's two-letter state identifier" type="text" id="state" name="state" maxlength="4" required/>
         </td>
         <td>
           Country
         </td>
         <td>
-          <input type="text" id="country" name="country" required/>
+          <input title="The contact's country" type="text" id="country" name="country" required/>
         </td>
         <td>
           Date/Time
         </td>
         <td>
-          <input type="text" id="date" name="date" onfocus="getDate();" required/>
+          <input title="Date/Time in the format of: YYYY-MM-DD HH:MM:SS" type="text" id="date" name="date" onfocus="getDate();" required/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          RST-R
+        </td>
+        <td>
+          <input title="RST score the contact provided to you" type="text" id="rstr" name="rstr" required/>
+        </td>
+        <td>
+          RST-S
+        </td>
+        <td>
+          <input title="RST score you provided to the contact" type="text" id="rsts" name="rsts" required/>
         </td>
         <td>
           Notes
         </td>
         <td>
-          <input type="text" id="notes" name="notes"/>
+          <input title="Any additional information you would like to log" type="text" id="notes" name="notes"/>
         </td>
       </tr>
       <tr>
         <td colspan="2" style="text-align: center;">
-          <input type="checkbox" name="allowDuplicates" id="allowDuplicates" /> Allow Duplicate entries
+          <input title="Would you like to allow duplicate contacts in your log?" type="checkbox" name="allowDuplicates" id="allowDuplicates" /> Allow Duplicate entries
         </td>
         <td colspan="2" style="text-align: center;">
            <input type="button" onclick="form.submit()" value="Submit">

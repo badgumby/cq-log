@@ -32,7 +32,7 @@ $dbtable = $_SESSION['username'];
 
 <?php
 
-$sql = "SELECT callsign, sequence, band, date, frequency, state, country, notes, ident FROM $dbtable ORDER BY ident DESC";
+$sql = "SELECT callsign, sequence, band, date, frequency, state, country, rstr, rsts, notes, ident FROM $dbtable ORDER BY ident DESC";
 $result = $mysqli->query($sql);
 
 if ($result->num_rows > 0) {
@@ -60,6 +60,12 @@ if ($result->num_rows > 0) {
       </th>
       <th>
         Country
+      </th>
+      <th>
+        RST-R
+      </th>
+      <th>
+        RST-S
       </th>
       <th>
         Date/Time
@@ -93,6 +99,12 @@ if ($result->num_rows > 0) {
         </td>
         <td>
           <?php echo $row["country"]; ?>
+        </td>
+        <td>
+          <?php echo $row["rstr"]; ?>
+        </td>
+        <td>
+          <?php echo $row["rsts"]; ?>
         </td>
         <td>
           <?php echo $row["date"]; ?>
