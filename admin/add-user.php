@@ -110,7 +110,6 @@ if($mpSubmit !== $masterpass){
   }
 
   $mysqli->close();
-  //INSERT INTO users (username, pswd) VALUES ('badgumby', SHA1('password'));
 
 }
  ?>
