@@ -9,6 +9,7 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
+/* You can now create a new user, and build their table by visiting https://site/admin/ */
 /* Create a new user */
 INSERT INTO users (username, pswd) VALUES ('username', SHA1('password'));
 
