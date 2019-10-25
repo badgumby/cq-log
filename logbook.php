@@ -36,7 +36,7 @@ if ($compare == sha1($_POST['password'])) {
 <head>
   <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
-  <title>CQ Logbook</title>
+  <title>CQ Logbook - <?php echo $_SESSION['username']; ?></title>
 </head>
 <body>
 
@@ -84,6 +84,7 @@ if ($compare == sha1($_POST['password'])) {
         </td>
         <td>
           <select name="band" id="band" size="1" required="required" onfocus="checkBand();">
+            <option value="n/a">N/A</option>
             <option value="160m">160m</option>
             <option value="80m">80m</option>
             <option value="40m">40m</option>
@@ -161,51 +162,51 @@ if ($compare == sha1($_POST['password'])) {
     var x = document.getElementById('frequency').value;
     // 160m
     if (x >= 1.8 && x <= 2.0) {
-      document.getElementById('band').selectedIndex = "0";
+      document.getElementById('band').selectedIndex = "1";
     }
     // 80m
     if (x >= 3.5 && x <= 4.0) {
-      document.getElementById('band').selectedIndex = "1";
+      document.getElementById('band').selectedIndex = "2";
     }
     // 40m
     if (x >= 7.0 && x <= 7.3) {
-      document.getElementById('band').selectedIndex = "2";
+      document.getElementById('band').selectedIndex = "3";
     }
     // 30m
     if (x >= 10.1 && x <= 10.15) {
-      document.getElementById('band').selectedIndex = "3";
+      document.getElementById('band').selectedIndex = "4";
     }
     // 20m
     if (x >= 14.0 && x <= 14.350) {
-      document.getElementById('band').selectedIndex = "4";
+      document.getElementById('band').selectedIndex = "5";
     }
     // 17m
     if (x >= 18.068 && x <= 18.168) {
-      document.getElementById('band').selectedIndex = "5";
+      document.getElementById('band').selectedIndex = "6";
     }
     // 15m
     if (x >= 21.0 && x <= 21.450) {
-      document.getElementById('band').selectedIndex = "6";
+      document.getElementById('band').selectedIndex = "7";
     }
     // 12m
     if (x >= 24.890 && x <= 24.990) {
-      document.getElementById('band').selectedIndex = "7";
+      document.getElementById('band').selectedIndex = "8";
     }
     // 10m
     if (x >= 28.0 && x <= 29.70) {
-      document.getElementById('band').selectedIndex = "8";
+      document.getElementById('band').selectedIndex = "9";
     }
     // 6m
     if (x >= 50 && x <= 54) {
-      document.getElementById('band').selectedIndex = "9";
+      document.getElementById('band').selectedIndex = "10";
     }
     // 2m
     if (x >= 144 && x <= 148) {
-      document.getElementById('band').selectedIndex = "10";
+      document.getElementById('band').selectedIndex = "11";
     }
     // 70cm
     if (x >= 430 && x <= 440) {
-      document.getElementById('band').selectedIndex = "11";
+      document.getElementById('band').selectedIndex = "12";
     }
   }
 
