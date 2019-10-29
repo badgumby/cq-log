@@ -147,6 +147,15 @@ if ($compare == sha1($_POST['password'])) {
         <td colspan="2" style="text-align: center;">
            <input type="button" onclick="form.submit()" value="Submit">
         </td>
+        <td colspan="2">
+          <div class="tooltip">RST Scoring?
+            <span class="tooltiptext">
+              <b>Readability</b><br />1 to 5<br />(unreadable) to (perfectly readable)<br /><hr />
+              <b>Strength</b><br />1 to 9<br />(faint-barely perceptible) to (extremely strong signal)<br /><hr />
+              <b>Tone</b><br />1 to 9<br />(very rough) to (perfect tone)
+            </span>
+          </div>
+        </td>
       </tr>
     </table>
   </form>

@@ -195,3 +195,46 @@ input[type="button" i] {
 input[type="button" i]:hover {
       background: #007EF5;
 }
+
+/* Tool tip */
+.tooltip {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.tooltip hr {
+  width: 90%;
+  color: #6a92d4;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: auto;
+  background-color: #272727;
+  color: #fff;
+  border: 1px solid #6a92d4;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #6a92d4 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
