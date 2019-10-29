@@ -65,19 +65,19 @@ if ($compare == sha1($_POST['password'])) {
           Callsign
         </td>
         <td>
-          <input title="The contact's callsign" type="text" id="callsign" name="callsign" required/>
+          <input title="The contact's callsign" maxlength="15" type="text" id="callsign" name="callsign" required/>
         </td>
         <td>
           Sequence
         </td>
         <td>
-          <input title="The sequence number provided to you by the contact" type="number" id="sequence" name="sequence" required/>
+          <input title="The sequence number provided to you by the contact" maxlength="20" type="number" id="sequence" name="sequence" required/>
         </td>
         <td>
           Frequency (MHz)
         </td>
         <td>
-          <input title="Frequency on which the contact was made" type="text" id="frequency" name="frequency" onfocus="checkBand();"/>
+          <input title="Frequency on which the contact was made" maxlength="20" type="text" id="frequency" name="frequency" onfocus="checkBand();"/>
         </td>
         <td>
           Band
@@ -111,13 +111,13 @@ if ($compare == sha1($_POST['password'])) {
           Country
         </td>
         <td>
-          <input title="The contact's country" type="text" id="country" name="country" required/>
+          <input title="The contact's country" maxlength="30" type="text" id="country" name="country" required/>
         </td>
         <td>
           Date/Time
         </td>
         <td>
-          <input title="Date/Time in the format of: YYYY-MM-DD HH:MM:SS" type="text" id="date" name="date" onfocus="getDate();" required/>
+          <input title="Date/Time in the format of: YYYY-MM-DD HH:MM:SS" maxlength="30" type="text" id="date" name="date" onfocus="getDate();" required/>
         </td>
       </tr>
       <tr>
@@ -125,19 +125,19 @@ if ($compare == sha1($_POST['password'])) {
           RST-R
         </td>
         <td>
-          <input title="RST score the contact provided to you" type="text" id="rstr" name="rstr" required/>
+          <input title="RST score the contact provided to you" maxlength="50" type="text" id="rstr" name="rstr" required/>
         </td>
         <td>
           RST-S
         </td>
         <td>
-          <input title="RST score you provided to the contact" type="text" id="rsts" name="rsts" required/>
+          <input title="RST score you provided to the contact" maxlength="50" type="text" id="rsts" name="rsts" required/>
         </td>
         <td>
           Notes
         </td>
         <td>
-          <input title="Any additional information you would like to log" type="text" id="notes" name="notes"/>
+          <input title="Any additional information you would like to log" maxlength="255" type="text" id="notes" name="notes"/>
         </td>
       </tr>
       <tr>
@@ -148,11 +148,18 @@ if ($compare == sha1($_POST['password'])) {
            <input type="button" onclick="form.submit()" value="Submit">
         </td>
         <td colspan="2">
-          <div class="tooltip">RST Scoring?
+          <div class="tooltip"><a href="https://en.wikipedia.org/wiki/R-S-T_system" target="_blank">RST Scoring?</a>
             <span class="tooltiptext">
               <b>Readability</b><br />1 to 5<br />(unreadable) to (perfectly readable)<br /><hr />
               <b>Strength</b><br />1 to 9<br />(faint-barely perceptible) to (extremely strong signal)<br /><hr />
-              <b>Tone</b><br />1 to 9<br />(very rough) to (perfect tone)
+              <b>Tone</b><br />1 to 9<br />(very rough) to (perfect tone)<br /><hr />
+              <b>Suffix Code</b><br />
+              <b>A</b> - Distorted by auroral propagation<br />
+              <b>C</b> - Chirp (frequency shift when keying)<br />
+              <b>K</b> - Key clicks<br />
+              <b>M</b> - Distorted by multipath propagation<br />
+              <b>S</b> - Distorted by scatter propagation<br />
+              <b>X</b> - Stable frequncy<br /><br />
             </span>
           </div>
         </td>
