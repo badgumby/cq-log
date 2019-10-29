@@ -1,4 +1,6 @@
-/*  */
+/* This is not to be executed directly, it is not a script */
+
+/* Create database */
 CREATE DATABASE cqlogs;
 
 /* Create 'users' table */
