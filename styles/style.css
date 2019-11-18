@@ -54,6 +54,13 @@ section {
   text-align: center;
 }
 
+.lookupDiv {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  display: block;
+}
+
 .adminDiv {
   border: 1px solid #ccc;
   border-radius: 5px;

@@ -25,35 +25,51 @@ $jsonDecode = json_decode($results);
 if ($jsonDecode->status == "OK") {
   if ($jsonDecode->Licenses->totalRows == "1") {
     foreach ($jsonDecode->Licenses->License as $jsonCallsign) {
-      echo "<b>Name:</b> " . $jsonCallsign->licName . "<br />";
-      echo "<b>Call Sign:</b> " . $jsonCallsign->callsign . "<br />";
-      echo "<b>Service Type:</b> " . $jsonCallsign->serviceDesc . "<br />";
-      echo "<b>Status:</b> " . $jsonCallsign->statusDesc . "<br />";
-      echo "<b>Expiration:</b> " . $jsonCallsign->expiredDate . "<br />";
-      echo "<b>FRN:</b> " . $jsonCallsign->frn . "<br />";
-      echo "<b>License ID:</b> " . $jsonCallsign->licenseID . "<br />";
-      echo "<a href='$jsonCallsign->licDetailURL'>More Details</a> <br /><br />";
+      ?>
+      <div class="lookupDiv">
+      <b>Name:</b> <?php echo $jsonCallsign->licName; ?> <br />
+      <b>Call Sign:</b> <?php echo $jsonCallsign->callsign; ?> <br />
+      <b>Service Type:</b> <?php echo $jsonCallsign->serviceDesc; ?> <br />
+      <b>Status:</b> <?php echo $jsonCallsign->statusDesc; ?> <br />
+      <b>Expiration:</b> <?php echo $jsonCallsign->expiredDate; ?> <br />
+      <b>FRN:</b> <?php echo $jsonCallsign->frn; ?> <br />
+      <b>License ID:</b> <?php echo $jsonCallsign->licenseID; ?> <br />
+      <a href="<?php echo $jsonCallsign->licDetailURL; ?>">More Details</a><br />
+      </div>
+      <?php
     }
+
     // If multiple matching callsigns are found
   } else {
     echo "<b>Multiple users found</b><br />";
     foreach ($jsonDecode->Licenses->License as $jsonCallsign) {
-      echo "<b>Name:</b> " . $jsonCallsign->licName . "<br />";
-      echo "<b>Call Sign:</b> " . $jsonCallsign->callsign . "<br />";
-      echo "<b>Service Type:</b> " . $jsonCallsign->serviceDesc . "<br />";
-      echo "<b>Status:</b> " . $jsonCallsign->statusDesc . "<br />";
-      echo "<b>Expiration:</b> " . $jsonCallsign->expiredDate . "<br />";
-      echo "<b>FRN:</b> " . $jsonCallsign->frn . "<br />";
-      echo "<b>License ID:</b> " . $jsonCallsign->licenseID . "<br />";
-      echo "<a href='$jsonCallsign->licDetailURL'>More Details</a> <br /><br />";
+      ?>
+      <div class="lookupDiv">
+      <b>Name:</b> <?php echo $jsonCallsign->licName; ?> <br />
+      <b>Call Sign:</b> <?php echo $jsonCallsign->callsign; ?> <br />
+      <b>Service Type:</b> <?php echo $jsonCallsign->serviceDesc; ?> <br />
+      <b>Status:</b> <?php echo $jsonCallsign->statusDesc; ?> <br />
+      <b>Expiration:</b> <?php echo $jsonCallsign->expiredDate; ?> <br />
+      <b>FRN:</b> <?php echo $jsonCallsign->frn; ?> <br />
+      <b>License ID:</b> <?php echo $jsonCallsign->licenseID; ?> <br />
+      <a href="<?php echo $jsonCallsign->licDetailURL; ?>">More Details</a> <br />
+      </div>
+      <?php
     }
   }
   // If none are found, or other error occurs
 } else {
   foreach ($jsonDecode->Errors->Err as $error) {
+    ?>
+    <div class="lookupDiv">
+    <?php
     echo "<b>Error Code:</b> " . $error->code . "<br />";
     echo "<b>Message:</b> " . $error->msg;
+    ?>
+    </div>
+    <?php
   }
+
 }
 
 ?>
