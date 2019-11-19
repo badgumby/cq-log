@@ -83,7 +83,7 @@ if ($result->num_rows > 0) {
           <?php echo $row["ident"]; ?>
         </td>
         <td>
-          <a href="lookup-callsign.php?callsign=<?php echo $row["callsign"]; ?>" target="_blank" onClick="window.open('lookup-callsign.php?callsign=<?php echo $row["callsign"]; ?>','Callsign Lookup','resizable,height=400,width=300'); return false;"><?php echo $row["callsign"]; ?></a>
+          <a href="lookup.php?callsign=<?php echo $row["callsign"]; ?>" target="_blank" onClick="window.open('lookup.php?callsign=<?php echo $row["callsign"]; ?>','Callsign Lookup','resizable,height=400,width=300'); return false;"><?php echo $row["callsign"]; ?></a>
         </td>
         <td>
           <?php echo $row["sequence"]; ?>

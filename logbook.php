@@ -50,7 +50,17 @@ if ($compare == sha1($_POST['password'])) {
 </div>
 <div class="footer">
   <div id="responseDiv" class="responseDiv">
-    <a href="javascript:refreshLog();">Refresh log</a>
+    <table>
+      <tr>
+        <td>
+          <a href="javascript:refreshLog();">Refresh log</a>
+        </td>
+        <td>
+          <a href="lookup-callsign.php" target="_blank" onClick="window.open('lookup-callsign.php','Callsign Lookup','resizable,height=400,width=300'); return false;">FCC Call Sign Lookup</a>
+        </td>
+      </tr>
+    </table>
+
     <h3>Status</h3>
     <div id="responseMsg">
 
