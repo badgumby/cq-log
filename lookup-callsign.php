@@ -13,7 +13,7 @@ $callsign = $_GET['callsign'];
    <link rel="stylesheet" href="styles/style.css">
    <title>Call Sign - <?php echo strtoupper($callsign); ?></title>
  </head>
-<body>
+<body class="lookupBody">
 
 <?php
 
@@ -27,14 +27,69 @@ if ($jsonDecode->status == "OK") {
     foreach ($jsonDecode->Licenses->License as $jsonCallsign) {
       ?>
       <div class="lookupDiv">
-      <b>Name:</b> <?php echo $jsonCallsign->licName; ?> <br />
-      <b>Call Sign:</b> <?php echo $jsonCallsign->callsign; ?> <br />
-      <b>Service Type:</b> <?php echo $jsonCallsign->serviceDesc; ?> <br />
-      <b>Status:</b> <?php echo $jsonCallsign->statusDesc; ?> <br />
-      <b>Expiration:</b> <?php echo $jsonCallsign->expiredDate; ?> <br />
-      <b>FRN:</b> <?php echo $jsonCallsign->frn; ?> <br />
-      <b>License ID:</b> <?php echo $jsonCallsign->licenseID; ?> <br />
-      <a href="<?php echo $jsonCallsign->licDetailURL; ?>">More Details</a><br />
+        <table>
+          <tr>
+            <td>
+              <b>Name:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->licName; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Call Sign:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->callsign; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Service Type:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->serviceDesc; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Status:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->statusDesc; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Expiration:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->expiredDate; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>FRN:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->frn; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>License ID:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->licenseID; ?>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <a href="<?php echo $jsonCallsign->licDetailURL; ?>">More Details</a>
+            </td>
+          </tr>
+        </table>
       </div>
       <?php
     }
@@ -45,14 +100,69 @@ if ($jsonDecode->status == "OK") {
     foreach ($jsonDecode->Licenses->License as $jsonCallsign) {
       ?>
       <div class="lookupDiv">
-      <b>Name:</b> <?php echo $jsonCallsign->licName; ?> <br />
-      <b>Call Sign:</b> <?php echo $jsonCallsign->callsign; ?> <br />
-      <b>Service Type:</b> <?php echo $jsonCallsign->serviceDesc; ?> <br />
-      <b>Status:</b> <?php echo $jsonCallsign->statusDesc; ?> <br />
-      <b>Expiration:</b> <?php echo $jsonCallsign->expiredDate; ?> <br />
-      <b>FRN:</b> <?php echo $jsonCallsign->frn; ?> <br />
-      <b>License ID:</b> <?php echo $jsonCallsign->licenseID; ?> <br />
-      <a href="<?php echo $jsonCallsign->licDetailURL; ?>">More Details</a> <br />
+        <table>
+          <tr>
+            <td>
+              <b>Name:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->licName; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Call Sign:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->callsign; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Service Type:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->serviceDesc; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Status:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->statusDesc; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Expiration:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->expiredDate; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>FRN:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->frn; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>License ID:</b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->licenseID; ?>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <a href="<?php echo $jsonCallsign->licDetailURL; ?>">More Details</a>
+            </td>
+          </tr>
+        </table>
       </div>
       <?php
     }

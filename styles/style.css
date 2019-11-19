@@ -54,11 +54,26 @@ section {
   text-align: center;
 }
 
+.lookupBody {
+  display: flex;
+  flex-direction: column;
+}
+
 .lookupDiv {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
-  display: block;
+  display: inline-block;
+  background-color: #fff;
+  margin: 5px;
+}
+
+.lookupDiv a, a:visited {
+  color: #6a92d4;
+}
+
+.lookupDiv td {
+  text-align: left;
 }
 
 .adminDiv {
