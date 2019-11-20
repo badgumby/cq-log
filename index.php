@@ -9,7 +9,7 @@ session_start();
    <link rel="stylesheet" href="styles/style.css">
    <title>CQ Logbook</title>
  </head>
- <body>
+ <body class="loginBody">
    <div class="loginDiv">
      <h3>CQ Logbook</h3>
      <form name="login" id="login" class="" method="post" action="logbook.php">
