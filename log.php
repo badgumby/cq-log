@@ -28,7 +28,7 @@ $dbtable = $_SESSION['username'];
   <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
+<body class="logBody">
 
 <?php
 

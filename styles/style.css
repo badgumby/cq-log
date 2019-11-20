@@ -1,9 +1,14 @@
 body {
-background-color:#272727;
+/*background-color:#272727;*/
+background-color: #233242;
 overflow-x: auto;
 overflow-y: auto;
 font-family: 'Roboto', sans-serif;
 color: #6a92d4;
+}
+
+.logBody {
+  background-color: #414753;
 }
 
 h1 {
@@ -52,6 +57,7 @@ section {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  background-color: #414753;
 }
 
 .lookupBody {
@@ -128,7 +134,7 @@ text-align: center;
 
 .logTable tbody tr{
 color:#CCCCCC;
-background-color:#333333;
+background-color:#233242;
 }
 
 .header {
