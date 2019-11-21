@@ -18,8 +18,10 @@ padding-top: 2%;
 }
 
 h2 {
-color:#6A92D4;
-margin-bottom: 5px;
+color:#FFF;
+margin: 0 auto;
+/*margin-bottom: 5px;*/
+text-align: center;
 }
 
 h3 {
@@ -67,6 +69,7 @@ section {
 .lookupBody {
   display: flex;
   flex-direction: column;
+  background-color: #414753;
 }
 
 .lookupDiv {
@@ -74,7 +77,7 @@ section {
   border-radius: 5px;
   padding: 10px;
   display: inline-block;
-  background-color: #fff;
+  background-color: #233242;
   margin: 5px;
 }
 
@@ -215,7 +218,7 @@ input[type="date"]{
   -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
 }
 
-input[type="button" i] {
+input[type="button" i], [type="submit"] {
   background: #6a92d4;;
   border: none;
   height: 50px;
@@ -225,8 +228,8 @@ input[type="button" i] {
   text-shadow: 1px 1px 1px #272727;
   cursor: pointer;
 }
-input[type="button" i]:hover {
-      background: #007EF5;
+input[type="button" i]:hover, [type="submit"]:hover {
+      background: #868D95;
 }
 
 /* Tool tip */

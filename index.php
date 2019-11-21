@@ -11,7 +11,7 @@ session_start();
  </head>
  <body class="loginBody">
    <div class="loginDiv">
-     <h3>CQ Logbook</h3>
+     <h2>CQ Logbook</h2>
      <form name="login" id="login" class="" method="post" action="logbook.php">
        <table>
          <tr>

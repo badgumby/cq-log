@@ -42,7 +42,7 @@ if ($compare == sha1($_POST['password'])) {
 
   <section>
     <div class="header">
-      <h3>CQ Logbook - <?php echo $_SESSION['username']; ?></h3>
+      <h2>CQ Logbook - <?php echo $_SESSION['username']; ?></h2>
       <a href="logout.php">Logout</a>
     </div>
 <div class="middle">

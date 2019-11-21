@@ -100,7 +100,7 @@ if ($jsonDecode->status == "OK") {
 
     // If multiple matching callsigns are found
   } else {
-    echo "<h3>Multiple users found</h3>";
+    echo "<h2>Multiple users found</h2>";
     foreach ($jsonDecode->Licenses->License as $jsonCallsign) {
       ?>
       <div class="lookupDiv">
