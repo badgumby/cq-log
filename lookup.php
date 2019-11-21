@@ -58,6 +58,14 @@ if ($jsonDecode->status == "OK") {
           </tr>
           <tr>
             <td>
+              <b>Category Type: </b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->categoryDesc; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <b>Status:</b>
             </td>
             <td>
@@ -127,6 +135,14 @@ if ($jsonDecode->status == "OK") {
             </td>
             <td>
               <?php echo $jsonCallsign->serviceDesc; ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Category Type: </b>
+            </td>
+            <td>
+              <?php echo $jsonCallsign->categoryDesc; ?>
             </td>
           </tr>
           <tr>
